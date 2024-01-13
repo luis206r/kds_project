@@ -13,7 +13,7 @@ import {
   blueGrey,
 } from "@mui/material/colors";
 
-export const Grill = ({ type }) => {
+export const Grill = () => {
   const [filtro, setFiltro] = useState<string>("all");
   const [data, setData] = useState<any[]>([]);
   const [filtroColorButtons, setFiltroColorButtons] = useState<object>({
