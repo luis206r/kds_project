@@ -9,16 +9,34 @@
     yellow,
     blueGrey,
     } from "@mui/material/colors";
+import { useDispatch } from "react-redux";
+import { changeStatus } from "../../state/pedidos.tsx";
+
 
 export const Card = ({ id, date, finalDate, status, elements }) => {
+    const dispatch = useDispatch();
         const [cardColor, setCardColor] = useState<string>("");
         const [buttonP, setButtonP] = useState<string>("");
         const [status_,setStatus] = useState<string>(status);
+
     const onClickFBhandler = (e)=>{
         e.preventDefault();
-        if(status_ ==="pendiente") setStatus("en curso");
-        else setStatus("finalizado");
-    }    
+        if(status_ ==="pendiente") {
+            setStatus("en curso");
+            dispatch(changeStatus({id:id, newStatus:"en curso"}));
+        }
+        else {
+            setStatus("finalizado");
+            dispatch(changeStatus({id:id, newStatus:"finalizado"}));
+        }
+    }   
+    
+    const onClickChandler = (e)=>{
+        e.preventDefault();
+        setStatus("cancelado");
+        dispatch(changeStatus({id:id, newStatus:"cancelado"}));
+    }
+
 
 
   useEffect(() => {
@@ -66,6 +84,7 @@ export const Card = ({ id, date, finalDate, status, elements }) => {
             </Button>
             
             <Button
+            onClick={onClickChandler}
             variant="contained"
             style={{
                 backgroundColor: red[500],

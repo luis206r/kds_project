@@ -43,6 +43,12 @@
     background-color:rgb(234, 234, 234);
     border-radius: 15px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover{
+    transform: scale(1.1); 
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.3);
 }
 
 h3{
@@ -93,4 +99,3 @@ h3{
     border-radius: 8px;
   }
 
-  
