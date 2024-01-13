@@ -7,7 +7,6 @@ import { Grill } from '../../commons/Grill/index.tsx'
 
 export const Home = () => {
     console.log(fakedata.getSomeFood(5));
-    const [loaded, setLoaded] = useState<boolean>(false);
     const dispatch = useDispatch();
     useEffect(()=>{
         let fecha:Date = new Date();
@@ -22,13 +21,10 @@ export const Home = () => {
             } 
             dispatch(add(pedido))
         }
-        
     },[])
   return (
     <div>
-        {
-            <Grill type={"pedidos"}/>
-        }
+       <Grill/>
     </div>
   )
 }
